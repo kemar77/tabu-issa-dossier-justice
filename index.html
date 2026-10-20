@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TABU ISSA — Comment la famille gagne (dossier d'instruction)</title>
+<style>
+:root{
+  --bg:#0d1117; --panel:#131a24; --panel2:#0f141d; --line:#223040;
+  --ink:#e8eef5; --muted:#8fa3b8; --dim:#5c7286;
+  --gold:#d4af37; --gold-dim:#a3852e; --green:#3fbf7f; --red:#e05252; --amber:#e0a452;
+  --serif:'Georgia',serif; --mono:'Consolas',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.75}
+.hero{min-height:88vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:60px 24px;background:radial-gradient(ellipse at 50% 0%,#1a2333 0%,var(--bg) 55%)}
+.hero .filet{width:60px;height:2px;background:var(--gold);margin:28px auto}
+.hero .ref{font-family:var(--mono);font-size:12px;letter-spacing:3px;color:var(--gold);text-transform:uppercase}
+.hero h1{font-size:clamp(34px,6vw,60px);font-weight:normal;line-height:1.18;max-width:920px}
+.hero h1 b{font-weight:bold;color:var(--gold)}
+.hero .sub{max-width:680px;color:var(--muted);font-size:clamp(16px,2.2vw,19px);font-style:italic;margin-top:22px}
+.badges{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:34px}
+.badge{border:1px solid var(--line);background:var(--panel);padding:6px 14px;border-radius:99px;font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.badge.ok{border-color:var(--green);color:var(--green)}
+main{max-width:880px;margin:0 auto;padding:0 24px}
+section{padding:64px 0;border-top:1px solid var(--line)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:14px}
+h2{font-size:clamp(24px,3.4vw,32px);font-weight:normal;margin-bottom:26px;line-height:1.25}
+h3{font-size:20px;color:var(--gold);margin:30px 0 12px}
+p{margin-bottom:14px}
+.lead{font-size:19px}
+.muted{color:var(--muted)}
+.small{font-size:14px;color:var(--dim)}
+.verdict{background:#16211d;border:1px solid var(--green);border-left:4px solid var(--green);padding:24px 26px;border-radius:8px;margin:26px 0}
+.verdict .k{font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--green);text-transform:uppercase}
+.verdict p{margin:8px 0 0}
+.danger{background:#241418;border:1px solid var(--red);border-left:4px solid var(--red);padding:22px 26px;border-radius:8px;margin:24px 0}
+.danger .k{font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--red);text-transform:uppercase}
+.danger p{margin:8px 0 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:22px 24px;margin:18px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:720px){.grid2{grid-template-columns:1fr}}
+.num{font-family:var(--mono);color:var(--gold);font-size:13px;letter-spacing:2px;margin-bottom:8px}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:15px}
+th{text-align:left;font-family:var(--mono);font-size:11px;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;padding:10px 12px;border-bottom:1px solid var(--gold-dim)}
+td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top}
+.src{font-family:var(--mono);font-size:11.5px;color:var(--dim);white-space:nowrap}
+a{color:#7fb0e8;text-decoration:none;border-bottom:1px dotted #3a5169}
+blockquote{border-left:3px solid var(--gold-dim);padding:6px 18px;margin:14px 0;color:var(--muted);font-style:italic}
+code{font-family:var(--mono);font-size:13px;color:var(--gold);background:#1a2230;padding:2px 6px;border-radius:4px;word-break:break-all}
+ul.pts{list-style:none;margin:12px 0}
+ul.pts li{padding-left:26px;position:relative;margin-bottom:10px}
+ul.pts li::before{content:'▸';position:absolute;left:6px;color:var(--gold)}
+.pill{display:inline-block;font-family:var(--mono);font-size:10.5px;padding:3px 10px;border-radius:99px;border:1px solid var(--line);color:var(--muted);margin-right:6px;vertical-align:middle}
+.pill.lu{border-color:var(--green);color:var(--green)}
+.pill.verif{border-color:var(--amber);color:var(--amber)}
+.toc{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:18px 24px;margin:28px 0}
+.toc a{display:block;padding:5px 0;color:var(--muted)}
+.toc a:hover{color:var(--gold)}
+footer{text-align:center;padding:60px 24px;border-top:1px solid var(--line);margin-top:40px}
+.note{font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--dim)}
+
+/* ---------- PORTE FAMILIALE ---------- */
+#porte{position:fixed;inset:0;background:#0a0d12;z-index:999;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:24px}
+#porte .filet{width:60px;height:2px;background:var(--gold);margin:26px auto}
+#porte .t{font-family:var(--serif);color:#e8eef5;font-size:clamp(22px,4vw,34px);max-width:640px;line-height:1.3}
+#porte .s{font-family:var(--mono);color:#8fa3b8;font-size:12px;letter-spacing:2px;margin-top:14px;text-transform:uppercase}
+#porte input{margin-top:30px;background:#131a24;border:1px solid #223040;color:#d4af37;font-family:var(--mono);font-size:22px;letter-spacing:8px;text-align:center;padding:14px 18px;border-radius:8px;width:220px;outline:none}
+#porte input:focus{border-color:var(--gold)}
+#porte button{margin-top:18px;background:var(--gold);color:#0d1117;border:none;font-family:var(--mono);font-size:13px;letter-spacing:2px;padding:12px 30px;border-radius:8px;cursor:pointer}
+#porte button:hover{background:#e8c94e}
+#porte .err{color:#e05252;font-family:var(--mono);font-size:12px;margin-top:14px;min-height:16px}
+</style>
+</head>
+<body>
+
+<div id="porte">
+  <div class="t">Dossier familial<br>TABU ISSA — parcelle du fleuve</div>
+  <div class="filet"></div>
+  <div class="s">Accès réservé — saisir le code familial</div>
+  <input id="code" inputmode="numeric" autocomplete="off" aria-label="Code d'accès">
+  <div class="err" id="err"></div>
+  <button onclick="ouvrir()">Ouvrir le dossier</button>
+</div>
+<script>
+function ouvrir(){
+  var v = document.getElementById('code').value.trim();
+  if(v === '9999'){
+    var p = document.getElementById('porte'); p.parentNode.removeChild(p);
+    try{ sessionStorage.setItem('tabu_porte','1'); }catch(e){}
+  } else {
+    document.getElementById('err').textContent = 'Code incorrect';
+  }
+}
+document.getElementById('code').addEventListener('keydown', function(e){ if(e.key==='Enter') ouvrir(); });
+try{ if(sessionStorage.getItem('tabu_porte')==='1'){ var p=document.getElementById('porte'); if(p) p.parentNode.removeChild(p); } }catch(e){}
+</script>
+
+<header class="hero">
+  <div class="ref">RC 130.338 · TGI Kinshasa/Gombe · Tierce opposition · Dossier familial</div>
+  <div class="filet"></div>
+  <h1>Comment <b>TABU ISSA</b> gagne</h1>
+  <p class="sub">Le dossier aux rayons X : les faits établis pièce par pièce, la loi lue au texte officiel, les faiblesses mesurées de l'attaque adverse, et le plan de bataille. Chaque affirmation porte sa preuve.</p>
+  <div class="badges">
+    <span class="badge ok">31 pages · 1 086 blocs OCR</span>
+    <span class="badge ok">6 textes de loi lus</span>
+    <span class="badge ok">5 arrêts Cass. RDC lus</span>
+    <span class="badge">3 revues adverses · 47 constats</span>
+  </div>
+</header>
+
+<main>
+
+<section id="situation">
+  <div class="eyebrow">01 — La situation en cinq minutes</div>
+  <h2>Votre mère a déjà gagné ce procès. L'adversaire essaie maintenant d'annuler sa victoire.</h2>
+
+  <div class="verdict">
+    <div class="k">Le fait central — établi par pièces</div>
+    <p>Le <b>18 février 2022</b>, le Tribunal de Grande Instance de Kinshasa/Gombe a <b>confirmé TABU ISSA Marie Jeanne propriétaire</b> de la parcelle (n° 5 avenue du fleuve, quartier Mbudi / CPA Mushie-Matshungu, Mont-Ngafula) et a <b>annulé pour fraude l'acte de vente du 29/03/2013</b> que son frère, ISSA MWANABUNGA Constant, avait fait établir à son nom propre en violant son mandat. <span class="src">(OCR p.013-016 — dispositif p.015 et p.030)</span></p>
+  </div>
+
+  <p class="lead">Depuis 2026, un tiers — <b>Pierre KWETE NDELE</b> — attaque ce jugement par <b>tierce opposition</b> (RC 130.338). Il affirme avoir acheté la même parcelle en 2023 auprès de MAVAMBU Benjamin, et demande au tribunal d'effacer le jugement qui protège votre mère.</p>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="num">CE QUE L'ADVERSAIRE DEMANDE (p.022-024)</div>
+      <ul class="pts">
+        <li>L'<b>annulation</b> du jugement du 18/02/2022</li>
+        <li>La <b>destruction des pièces</b> versées par TABU ISSA au premier procès</li>
+        <li>Le <b>déguerpissement de la personne qui occupe</b> la parcelle — occupante <b>non nommée</b> dans l'acte</li>
+        <li><b>10 000 $</b> de dommages-intérêts</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="num">CE QUE VOTRE MÈRE A DÉJÀ (p.009-016)</div>
+      <ul class="pts">
+        <li>Un <b>jugement rendu et signé</b> — pas un projet</li>
+        <li>La <b>propriété confirmée judiciairement</b></li>
+        <li>L'acte frauduleux du frère <b>déjà annulé</b></li>
+        <li>Un jugement <b>signifié</b> au frère (l'exploit existe, p.009)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="toc">
+    <a href="#pieces">02 — Les pièces : qui a quoi en main</a>
+    <a href="#loi">03 — La loi, lue au texte officiel</a>
+    <a href="#faiblesses">04 — Les faiblesses mesurées de l'attaque adverse</a>
+    <a href="#strategie">05 — Les pistes de victoire de la famille</a>
+    <a href="#risques">06 — Les risques honnêtes</a>
+    <a href="#actions">07 — Les actions immédiates</a>
+    <a href="#annexes">08 — Annexes : les sources lues</a>
+  </div>
+</section>
+
+<section id="pieces">
+  <div class="eyebrow">02 — L'état du dossier, aux rayons X</div>
+  <h2>Ce que chaque camp a en main</h2>
+
+  <table>
+    <tr><th>Pièce</th><th>À qui elle sert</th><th>Ce qu'elle prouve (et ses trous)</th><th>Pages</th></tr>
+    <tr>
+      <td><b>Jugement RC 121.426</b> (18/02/2022)</td>
+      <td><b>La famille</b></td>
+      <td>Propriété confirmée ; acte du 29/03/2013 annulé « pour fraude » ; frais au défendeur</td>
+      <td class="src">013-016 · copies 025-031</td>
+    </tr>
+    <tr>
+      <td><b>Exploit de signification</b> du jugement</td>
+      <td>Décisif (double tranchant)</td>
+      <td>Le jugement a été signifié au frère — <b>jour et année illisibles</b> à l'OCR. Cette date inconnue gouverne la voie de recours du frère (voir §06)</td>
+      <td class="src">009</td>
+    </tr>
+    <tr>
+      <td><b>Assignation en tierce opposition</b></td>
+      <td>L'adversaire</td>
+      <td>4 demandes ; <b>date non remplie</b> à la lecture ; l'huissier se déclare du TGI <b>Kalamu</b> (régularité discutable)</td>
+      <td class="src">022-024</td>
+    </tr>
+    <tr>
+      <td><b>Conclusions adverses</b> (cabinet KESSA DOSUMBI)</td>
+      <td>L'adversaire</td>
+      <td>KWETE NDELE « ni partie, ni appelé, ni représenté » — condition de l'art. 80 (recevable en principe sur ce point)</td>
+      <td class="src">002-008</td>
+    </tr>
+    <tr>
+      <td><b>Acte de vente 23/06/2023</b> (MAVAMBU → KWETE)</td>
+      <td>L'adversaire</td>
+      <td><b>Prix manuscrit illisible</b>, acheteur à moitié déchiffré, témoins non lus — l'acte central adverse est un document à trous</td>
+      <td class="src">017</td>
+    </tr>
+    <tr>
+      <td><b>Passeport MAVAMBU Benjamin</b></td>
+      <td>Neutre</td>
+      <td>Vendeur de 2023 : né 12/08/1989 à Kinshasa, plombier, résidant à Saint-Brieuc (France)</td>
+      <td class="src">018</td>
+    </tr>
+    <tr>
+      <td><b>Acte manuscrit 2019</b></td>
+      <td>L'adversaire (fragile)</td>
+      <td>Lettres lisibles « dix…Neu…aMill » (≈ dix-neuf mille) ; numéral tronqué « 9.ooo » ; signataires probables NOTIYA-ISSA et « ISSA MARIE » ; <b>date illisible</b></td>
+      <td class="src">019</td>
+    </tr>
+    <tr>
+      <td><b>Attestation d'occupation parcellaire</b></td>
+      <td>L'adversaire (fragile)</td>
+      <td>Bourgmestre de Mont-Ngafula ; <b>bénéficiaire illisible</b> ; fragments manuscrits « BuMB… » / « MA.H.UNGU » — alignés sur l'adresse <b>adverse</b> (avenue Bumba/Matshungu)</td>
+      <td class="src">020</td>
+    </tr>
+    <tr>
+      <td><b>Fiche parcellaire</b></td>
+      <td>Neutre</td>
+      <td>Quasi intégralement illisible (fragments « RESIDANT », « MAAYANGAALD »)</td>
+      <td class="src">021</td>
+    </tr>
+    <tr>
+      <td><b>Expertise judiciaire (doc4)</b></td>
+      <td>À déterminer</td>
+      <td>Cabinet KALEB ET ASSOCIÉS, expert FAKEDI LANGA MUKENDI ; citée : « BILONDELE TABU MARIE (TSHALA LOBA) » ; parcelle « N° 16 400 KM 4 » — <b>rattachement à la famille NON ÉTABLI</b>, corps illisible à 95 %</td>
+      <td class="src">doc4</td>
+    </tr>
+  </table>
+
+  <h3>Les pièces qui manquent — des deux côtés</h3>
+  <ul class="pts">
+    <li><b>Côté famille</b> : l'acte KAMBU → TABU ISSA (6 000 $US, p.013), le mandat écrit au frère, la décharge de KAMBU — tous <b>allégués au jugement, jamais produits</b>. Sans eux, la chaîne de votre mère reste dans le jugement de 2022 mais sans originaux.</li>
+    <li><b>Côté adversaire</b> : l'acte NOTIYA-ISSA → MAVAMBU de 2019 (allégué p.003, absent en original), le certificat d'enregistrement de qui que ce soit, et le prix réel de 2023.</li>
+  </ul>
+</section>
+
+<section id="loi">
+  <div class="eyebrow">03 — La loi, lue au texte officiel</div>
+  <h2>Quatre textes décisifs, lus en intégralité sur leganet.be</h2>
+
+  <div class="card">
+    <div class="num">ART. 80 DU CPC CONGOLAIS (décret du 7 mars 1960) — LA TIERCE OPPOSITION</div>
+    <blockquote>« Quiconque peut former tierce opposition à un jugement qui préjudicie à ses droits, et lors duquel ni lui, ni ceux qu'il représente n'ont été appelés »</blockquote>
+    <p class="small">Le chapitre (art. 80-84) ne contient <b>aucun délai</b>. ⚠️ La référence « décret du 10 avril 1969 » que la pratique congolaise cite partout est <b>introuvable sur sources primaires</b> (chronologie leganet 1969 lue en entier). <span class="pill lu">TEXTE LU</span></p>
+  </div>
+
+  <div class="card">
+    <div class="num">ART. 61 CPC — L'OPPOSITION DU DÉFAILLANT : 15 JOURS</div>
+    <blockquote>15 jours depuis la signification <b>à personne</b> ; sinon depuis la <b>connaissance</b> de la signification ; sinon depuis le <b>premier acte d'exécution</b> — et définitivement fermée après « exécution consommée ».</blockquote>
+    <p class="small"><b>La porte stratégique du frère</b> — et donc le principal risque collatéral de la famille (voir §06). <span class="pill lu">TEXTE LU</span></p>
+  </div>
+
+  <div class="card">
+    <div class="num">ART. 49 DE LA LOI FONCIÈRE (loi 73-021 du 20/07/1973) — LE PIÈGE DE L'ADVERSAIRE</div>
+    <blockquote>« La propriété des biens s'acquiert et se transmet par donation entre vifs, par testament, par succession et par convention. »</blockquote>
+    <p class="small">Ce n'est <b>ni une règle d'immatriculation ni une règle de forme des actes</b>. L'adversaire qui invoque l'art. 49 contre la régularité des pièces de TABU ISSA (p.005) <b>vise le mauvais article</b>. Les vraies règles d'opposabilité : <b>art. 227</b> (certificat d'enregistrement = pleine foi), <b>art. 282</b> (acte authentique + inscription pour opposer aux tiers). <span class="pill lu">TEXTE LU ×2 routes concordantes</span></p>
+  </div>
+
+  <div class="card">
+    <div class="num">ART. 136 DE LA LOI ORGANIQUE 13/011-B — LA COMPÉTENCE TERRITORIALE</div>
+    <blockquote>« En matière immobilière, l'action est portée devant le juge de la situation de l'immeuble. »</blockquote>
+    <p class="small">La parcelle est à Mont-Ngafula ; le tribunal saisi (et celui qui a jugé en 2022) est le TGI de <b>Gombe</b>. Le décret des ressorts de 2014 (n° 14/015) a été <b>trouvé et lu intégralement</b> : il ne nomme aucun TGI de Kinshasa-ville — le tribunal compétent pour Mont-Ngafula (Matete ? Ngaliema ? Gombe ?) reste à trancher par texte primaire (JO papier / greffe ; <span class="pill verif">À VÉRIFIER</span>). Trois désignations coexistent au dossier adverse : Gombe (juge), Matete (couverture), Kalamu (huissier). <span class="pill lu">TEXTE LU</span></p>
+  </div>
+
+  <p class="small">Également lus et confirmés : art. 33 code civil (conventions = loi des parties, bonne foi) ; art. 530 (mandat exprès obligatoire pour aliéner) et 531 (limites du mandat) ; art. 17 CPC. Détails complets dans <code>RECHERCHE_JURIDIQUE_RDC.md</code>.</p>
+</section>
+
+<section id="faiblesses">
+  <div class="eyebrow">04 — L'attaque adverse, minée de l'intérieur</div>
+  <h2>Les faiblesses mesurées du dossier adverse</h2>
+
+  <div class="card">
+    <div class="num">FAIBLESSE 1 — L'ARTICLE DE LOI FAUX</div>
+    <p>Le moyen de fond adverse le plus lourd (l'art. 49 « régularité de forme », p.005) repose sur <b>un article qui ne dit pas ce qu'ils prétendent</b>. Démontré par la lecture directe du texte (§03). L'adversaire devra changer de moyen en cours de route — signe d'un dossier construit à la va-vite.</p>
+  </div>
+  <div class="card">
+    <div class="num">FAIBLESSE 2 — UNE CHAÎNE D'ACQUISITION SANS ORIGINAUX</div>
+    <p>NOTIYA-ISSA Dorcas → MAVAMBU Benjamin (2019, allégué) → KWETE NDELE (2023, prix illisible) : <b>pas un seul titre original de cette chaîne n'est dans le dossier</b>. L'acte de 2019 n'existe qu'en allégation et en manuscrit illisible ; le certificat d'enregistrement (art. 227, la pièce qui fait pleine foi) n'est produit par personne.</p>
+  </div>
+  <div class="card">
+    <div class="num">FAIBLESSE 3 — SA « BONNE FOI » RESISTE MAL À LA CHRONOLOGIE</div>
+    <p>Recevabilité à part (art. 80 : il n'était effectivement pas partie au procès de 2021), le <b>fond</b> de sa bonne foi marche mal : un acheteur sérieux d'un immeuble à Kinshasa (2019 puis 2023) qui ne consulte ni l'occupation, ni le voisinage, ni le cadastre, pendant qu'un procès oppose les deux personnes en cause sur la même parcelle — la <b>diligence</b> qu'on peut lui opposer est un vrai angle d'attaque, et la jurisprudence RDC (arrêt RP 684, §05) traite sévèrement la double vente.</p>
+  </div>
+  <div class="card">
+    <div class="num">FAIBLESSE 4 — LA DESCRIPTION DE LA PARCELLE DIVERGE… ET LE FONDEMENT TEXTUEL ADVERSE EST CASSÉ</div>
+    <p>Le jugement dit « avenue du fleuve n°5, Mbudi » ; l'adversaire dit « avenue Bumba, localité Matshungu, 16 m/22 » ; l'attestation p.020 (fragments « BuMB… ») s'aligne sur l'adresse adverse. <b>Même parcelle sous deux descriptions, ou deux lopins ?</b> NON ÉTABLI — question d'instruction centrale. <b>Et l'attestation d'occupation adverse elle-même cite une ordonnance « 60-069 du 18/01/1980 » jamais retrouvable</b> : la vraie loi de 1980 (loi 80-008 du 18 juillet) n'a jamais traité d'attestation parcellaire (résultat 1, §08). Une pièce clé adverse repose sur un fondement textuel cassé.</p>
+  </div>
+  <div class="card">
+    <div class="num">FAIBLESSE 5 — UN CIRCUIT JUDICIAIRE ANARCHIQUE</div>
+    <p>Dans leurs propres pièces : TGI <b>Gombe</b> saisi, mention « <b>Matete</b> » en couverture des conclusions (p.003, conf. 0,98), huissier se déclarant du TGI <b>Kalamu</b> (p.022). Trois juridictions, une seule parcelle à Mont-Ngafula — l'incompétence territoriale (art. 136) est un moyen de procédure à instruire contre TOUTE la procédure adverse.</p>
+  </div>
+  <div class="card">
+    <div class="num">FAIBLESSE 6 — LE MINISTÈRE PUBLIC « VERBAL SUR LE BANC »</div>
+    <p>Au jugement de 2022, l'avis du substitut ETOY était donné « verbal, sur le banc » (p.027). Or la CSJ (28/03/1990, RC 1202 — arrêt lu) exige un avis <b>motivé</b>. Angle théorique sérieux contre le jugement initial lui-même — donc à manier avec la plus grande prudence (voir §06), car il coupe dans les deux sens.</p>
+  </div>
+</section>
+
+<section id="strategie">
+  <div class="eyebrow">05 — Comment la famille gagne</div>
+  <h2>Six pistes de bataille, du plus solide au plus fin</h2>
+
+  <div class="card">
+    <div class="num">PISTE 1 — EXIGER LES ORIGINAUX ADVERSES (le terrain où la famille est la plus forte)</div>
+    <p>Toute la chaîne adverse est <b>alléguée</b> : acte 2019 absent, prix 2023 illisible, certificat d'enregistrement produit par personne (art. 227 : c'est LUI la pièce de pleine foi). La défense de la famille est simple et brutale : <b>« produisez vos titres »</b>. S'ils produisent : on les examine (dates, signatures, montant 9.000 vs 19.000 de la p.019). S'ils ne produisent pas : leur tierce opposition est une action à nu, sans preuve de droit.</p>
+  </div>
+  <div class="card">
+    <div class="num">PISTE 2 — LA DILIGENCE DE L'ACHETEUR 2023</div>
+    <p>KWETE NDELE achète en 2023, <b>un an et demi après un jugement public</b> (18/02/2022) sur la parcelle qu'on lui vend. Un acheteur d'immeuble qui ne vérifie ni l'occupation, ni le registre, alors qu'une action judiciaire visible existe — sa bonne foi se défend mal. Avec l'arrêt Cass. RP 684 (double vente à Mont-Ngafula, sévérité maximale), c'est le fond de contre-attaque. <b>Et puisque la tierce opposition n'a pas de délai (confirmé, §08-Résultat 2), la recevoir n'est pas le problème — sa réussite l'est : elle exige une chaîne de titres que l'adversaire n'a pas produit.</b></p>
+  </div>
+  <div class="card">
+    <div class="num">PISTE 3 — L'INCOMPÉTENCE TERRITORIALE (art. 136)</div>
+    <p>Immeuble à Mont-Ngafula ; jugement et tierce opposition portés devant TGI/Gombe ; huissier de Kalamu ; mention « Matete ». Si le décret des ressorts place Mont-Ngafula sous un autre TGI, <b>toute la chaîne procédurale est attaquable</b> — y compris, attention, le jugement initial de 2022 lui-même (voir risque §06).</p>
+  </div>
+  <div class="card">
+    <div class="num">PISTE 4 — LA DIVERGENCE DE DESCRIPTION DE LA PARCELLE</div>
+    <p>Avenue du fleuve n°5/Mbudi (jugement) vs avenue Bumba/Matshungu 16 m/22 (adversaire). Faire trancher par <b>constat d'huissier + croquis de bornage + fiche parcellaire originale</b>. Deux scénarios de victoire : parcelles distinctes → l'adversaire attaque un jugement qui ne concerne pas sa parcelle ; même parcelle → c'est le dossier adverse qui porte la confusion d'adresses, et la famille a le jugement signé.</p>
+  </div>
+  <div class="card">
+    <div class="num">PISTE 5 — LE TÉMOIGNAGE DE NOTIYA-ISSA DORCAS</div>
+    <p>La chaîne adverse commence chez une personne <b>identifiée par son nom</b>. Si cette vendeuse de 2019 peut témoigner (a) sur ce qu'elle a vendu, (b) où se trouvait la parcelle, (c) ce que MAVAMBU en a dit — la famille tient le premier maillon réel de la chaîne adverse, à interroger AVANT l'audience.</p>
+  </div>
+  <div class="card">
+    <div class="num">PISTE 6 — L'EXPERTISE JUDICIAIRE doc4 (à qualifier d'urgence)</div>
+    <p>Une expertise de cabinet agréé existe au dossier (KALEB ET ASSOCIÉS / FAKEDI LANGA MUKENDI) avec une partie citée « BILONDELE TABU MARIE ». Si le rattachement à la famille est établi (re-scan 300 DPI), c'est une <b>preuve renforcée</b> à verser à la défense. Sinon : au moins vérifier quoi elle porte avant que l'adversaire ne la retourne.</p>
+  </div>
+</section>
+
+<section id="risques">
+  <div class="eyebrow">06 — Les risques, dits honnêtement</div>
+  <h2>Ce qui pourrait faire perdre la famille</h2>
+
+  <div class="danger">
+    <div class="k">Risque 1 — La date de signification du jugement (p.009) reste inconnue</div>
+    <p>Toute la question de l'opposition du frère pend sur cette date. Si le jugement n'a jamais été signifié <b>à personne</b> et qu'aucune exécution n'a été consommée, l'art. 61 reste ouvert pour lui — et s'il l'utilise, <b>le jugement de 2022 tombe pour tout le monde, la famille comprise</b>. La famille doit : (a) retrouver l'original de l'exploit, (b) peser avec son avocat si, dans ce dossier, l'arme « opposition du frère » vaut mieux tenue que dégainée.</p>
+  </div>
+  <div class="danger">
+    <div class="k">Risque 2 — Deux descriptions de parcelle, un seul procès</div>
+    <p>Tant que « avenue du fleuve n°5 » et « avenue Bumba 16 m/22 » ne sont pas réconciliées (bornage, cadastre), chaque camp peut gagner « sa » version et le conflit redémarrer ailleurs. Le constat de bornage est la dépense la plus rentable du dossier.</p>
+  </div>
+  <div class="danger">
+    <div class="k">Risque 3 — Aucun avocat côté famille au dossier actuel</div>
+    <p>Les conclusions au dossier sont celles de l'adversaire. Sans conseil, la famille risque de subir la procédure adverse sans la contester — l'erreur qui a déjà coûté au frère en 2021 (défaut, p.013). <b>C'est l'action n° 1 du §07.</b></p>
+  </div>
+  <div class="danger">
+    <div class="k">Risque 4 — Les manuscrits décident (et ils sont illisibles)</div>
+    <p>Les pièces pivot (p.009 date, p.017 prix, p.019 date+montant, p.020 bénéficiaire, fiche p.021, doc4) sont des manuscrits que l'OCR n'a pas pu lire. Ces lectures doivent être faites sur originaux / rescan 300 DPI avant l'audience — sinon chaque partie raconte sa version des mêmes feuilles.</p>
+  </div>
+</section>
+
+<section id="actions">
+  <div class="eyebrow">07 — Les actions immédiates</div>
+  <h2>Sept actions, dans l'ordre</h2>
+
+  <div class="card">
+    <div class="num">ACTION 1 — CONSTITUER UN AVOCAT (priorité absolue)</div>
+    <p>La famille n'apparaît dans aucune conclusion au dossier actuel. C'est la seule action qui conditionne tous les autres.</p>
+  </div>
+  <div class="card">
+    <div class="num">ACTION 2 — RETROUVER L'ORIGINAL DE L'EXPLOIT DE SIGNIFICATION (p.009)</div>
+    <p>La date exacte décide de l'opposition du frère (art. 61 : 15 jours) et donc du risque n° 1. Chez l'huissier, au greffe, dans les papiers familiaux.</p>
+  </div>
+  <div class="card">
+    <div class="num">ACTION 3 — FAIRE BORNER LA PARCELLE (constat + croquis)</div>
+    <p>Pour trancher « avenue du fleuve n°5 » vs « avenue Bumba 16 m/22 ». Une mesure terrain qui vaut dix arguments.</p>
+  </div>
+  <div class="card">
+    <div class="num">ACTION 4 — EXIGER PAR ÉCRIT LES ORIGINAUX ADVERSES</div>
+    <p>Acte 2019, acte 2023 (avec prix lisible), certificat d'enregistrement (art. 227). La demande écrite est en soi une pièce de défense : elle fixe dans le dossier ce que l'adversaire refusera de produire.</p>
+  </div>
+  <div class="card">
+    <div class="num">ACTION 5 — RESCANNER À 300 DPI LES MANUSCRITS</div>
+    <p>p.009, p.017, p.019, p.020, p.021 + doc1, doc3, doc4 — puis re-transcription contrôlée. Les identités (NOTIYA-ISSA Dorcas, « ISSA MARIE », BILONDELE TABU MARIE) et les montants réels y sont.</p>
+  </div>
+  <div class="card">
+    <div class="num">ACTION 6 — RECHERCHER NOTIYA-ISSA DORCAS</div>
+    <p>Premier maillon réel de la chaîne adverse, témoignage précieux pour la famille (Piste 5).</p>
+  </div>
+  <div class="card">
+    <div class="num">ACTION 7 — QUALIFIER L'EXPERTISE doc4</div>
+    <p>Déterminer d'urgence si le rapport KALEB ET ASSOCIÉS concerne la famille (rattachement « TABU » NON ÉTABLI) — en faire une pièce de sa défense, ou connaître sa menace.</p>
+  </div>
+</section>
+
+<section id="annexes">
+  <div class="eyebrow">08 — Annexes : les sources lues</div>
+  <h2>Textes et arrêts lus en intégralité</h2>
+
+  <table>
+    <tr><th>Source</th><th>Statut</th><th>URL</th></tr>
+    <tr><td>Art. 80, 61, 62, 65, 17 CPC congolais</td><td>TEXTE LU</td><td class="src"><a href="https://www.leganet.be/Legislation/Droit%20Judiciaire/Decret.7.03.1960.htm">leganet.be — décret 7/03/1960</a></td></tr>
+    <tr><td>Art. 49, 227, 282 loi foncière 73-021</td><td>TEXTE LU ×2 routes</td><td class="src"><a href="https://www.leganet.be">leganet.be (loi 73-021)</a></td></tr>
+    <tr><td>Art. 33, 530, 531 code civil (1888)</td><td>TEXTE LU</td><td class="src"><a href="https://www.leganet.be/Legislation/Droit%20obligations-contrats/Decret.30.07.1988.obl.htm">leganet.be — décret 1888</a></td></tr>
+    <tr><td>LO 13/011-B art. 14, 130, 136</td><td>TEXTE LU</td><td class="src"><a href="https://www.leganet.be">leganet.be (LO 13/011-B)</a></td></tr>
+    <tr><td>Cass. RDC 27/03/2019 RP 684/RP 4698 (double vente, Mont-Ngafula)</td><td>ARRÊT LU</td><td class="src"><a href="https://www.juricaf.org">juricaf.org — CONGODEMOCRATIQUE</a></td></tr>
+    <tr><td>Cass. RDC 23/02/2022 RC 364/RC 3316 (tierce opposition, représentation)</td><td>ARRÊT LU</td><td class="src"><a href="https://www.juricaf.org">juricaf.org</a></td></tr>
+    <tr><td>Cass. RDC 28/08/2019 RC 458/RC 3836 (annulation de titres)</td><td>ARRÊT LU</td><td class="src"><a href="https://www.juricaf.org">juricaf.org</a></td></tr>
+    <tr><td>Cass. RDC 05/02/2020 RC 347/RC 3857 (vente + certificat annulés)</td><td>ARRÊT LU</td><td class="src"><a href="https://www.juricaf.org">juricaf.org</a></td></tr>
+    <tr><td>CSJ RDC 28/03/1990 RC 1202 (avis du Ministère public motivé)</td><td>ARRÊT LU</td><td class="src"><a href="https://www.juricaf.org">juricaf.org</a></td></tr>
+  </table>
+
+  <h3>Les sources du dossier</h3>
+  <p class="small">
+    <code>C:\Users\blanc\Desktop\Dossier Justice maman parcelle fleuve\extraction\OCR_INTEGRAL_31_PAGES.txt</code> — l'OCR complet des 31 pages (1 086 blocs, confiance par ligne) ·
+    <code>RAPPORT_AVOCAT_TABU_ISSA.md</code> — le rapport d'avocat v3 ·
+    <code>RECHERCHE_JURIDIQUE_RDC.md</code> — la recherche juridique sourcée ·
+    <code>NOTE_MESURE_COLORIMETRIE_2026-10-19.md</code> — la mesure qui a tranché les litiges de lecture.
+  </p>
+
+  <h3>Les recherches de clôture (toutes menées à terme le 19/10 au soir)</h3>
+  <div class="card">
+    <div class="num">RÉSULTAT 1 — L'ORDONNANCE « 60-069 DU 18/01/1980 » N'EXISTE PAS (renvoi défectueux)</div>
+    <p>L'attestation d'occupation adverse (p.020) se fonde sur « l'ordonnance-loi n° 60-069 du 18 janvier 1980, article 140 ». Mesure : ce numéro est <b>jamais retrouvable</b> dans la législation foncière ; la vraie loi modifiant la loi foncière en 1980 est la <b>loi n° 80-008 du 18 JUILLET 1980</b> (JO Zaïre n° 15 du 01/08/1980 ; republiée JO RDC spécial 01/12/2004 — PDF lu en intégralité, 223 200 caractères non-scan), et son art. 140 réel parle de <b>redevance d'usufruit (un quart des recettes)</b> — rien à voir avec une attestation. L'expression « attestation d'occupation parcellaire » figure <b>zéro fois</b> dans la loi foncière consolidée. Hypothèse la plus solide : numéro et mois inversés, ou contamination par la loi de <b>l'AUTRE Congo (Brazzaville n° 8-80 du 18 janvier 1980)</b>. <b>La pièce pivot adverse repose sur un fondement textuel cassé.</b> <span class="pill lu">JO 2004 LU</span> <span class="pill verif">JO papier 1980 À VÉRIFIER</span></p>
+  </div>
+  <div class="card">
+    <div class="num">RÉSULTAT 2 — AUCUN DÉLAI POUR LA TIERCE OPPOSITION (confirmé + réserve)</div>
+    <p>Le chapitre art. 80-84 du CPC 1960 <b>recontrôlé ce soir</b> (leganet, 193 412 o, art. 80-84 greppés) : <b>aucun délai</b>. Doctrine congolaise concordante (« aucun délai fixé par la loi » — Kalala Kongolo, Ntumba Nyembo : pages inaccessibles = À VÉRIFIER). La tierce opposition n'est <b>pas suspensive</b> (art. 84). <b>L'affirmation adverse « aucun délai » (p.004) est donc solide sur ce point</b> — la défense de la famille doit porter ailleurs (diligence, originaux, compétence). <span class="pill lu">RE-RELU ×2</span></p>
+  </div>
+  <div class="card">
+    <div class="num">RÉSULTAT 3 — « LA FRAUDE CORROMPT TOUT » N'EST PAS UNE MAXIME ARRÊTÉE EN RDC</div>
+    <p>Juricaf plein-texte mesuré : « fraus omnia corrumpit » = 1 201 résultats tous pays, <b>zéro décision CONGODEMOCRATIQUE</b> ; dans les 102 arrêts RDC et les 5 arrêts lus : jamais. La formule figure dans le jugement initial comme formule du tribunal de première instance (pièce) — <b>ne pas la citer comme maxime consacrée par la Cour suprême de justice RDC</b>. Piste repérée non lue : Cour constitutionnelle, R.const. 1361 du 26/11/2024 (403 mesuré) = À VÉRIFIER. <span class="pill verif">À VÉRIFIER</span></p>
+  </div>
+  <div class="card">
+    <div class="num">RÉSULTAT 4 — ALERTE : UN NOUVEAU CODE DE PROCÉDURE CIVILE EXISTERAIT (24/025 du 25/07/2024)</div>
+    <p>Une loi n° 24/025 du 25/07/2024 (JO spécial 01/08/2024) porterait un <b>nouveau Code de procédure civile, commerciale et familiale</b> abrogeant le CPC de 1960 (art. 660 abrogatoire). <b>Le texte intégral est INACCESSIBLE partout où mesuré</b> (leganet.cd 404/certificat auto-signé ; Wayback non archivé). <b>Jusqu'à sa lecture, toute réponse chiffrée sur les délais actuels est prématurée</b> — l'avocat devra vérifier si ce nouveau code est en vigueur et ce qu'il dit de la tierce opposition et de l'opposition. <span class="pill verif">BLOQUANT — À VÉRIFIER</span> <span class="src">(RECHERCHE_DELAI_TO_OK_FRAUDE.md, RECHERCHE_ORDONNANCE_1980_ATTESTATION.md)</span></p>
+  </div>
+
+  <div class="card">
+    <div class="num">RÉSULTAT 4bis — LE DÉCRET DES RESSORTS (14/015 du 08/05/2014) : LU ENTIÈREMENT — ET IL NE TRANNCHE PAS KINSHASA</div>
+    <p>Le décret PM fixant les sièges et ressorts des TGI (n° 14/015 du 08/05/2014, JO RDC 01/06/2014, signé Matata Ponyo) a été <b>retrouvé et lu en intégralité</b> (archive Wayback de leganet.cd, 13 479 o) : il crée des TGI dans d'autres provinces mais <b>ne nomme aucun des TGI de Kinshasa-ville</b> (Gombe, Matete, Kalamu, Ngaliema n'y figurent pas — leurs ressorts relèvent de textes antérieurs non retrouvés en ligne ; les ordonnances « 17/030 bis » et « 19/035 bis » citées par des résumés sans source primaire = À VÉRIFIER). Pour <b>Mont-Ngafula, le TGI compétent reste NON TRANCHÉ par texte primaire</b> : 3 candidats au dossier — TGI <b>Matete</b> (preuve de pratique 1986 lue : un prévenu de la zone Mont-Ngafula y fut traduit, JO n°22 du 15/11/1986), TGI <b>Ngaliema</b> (résumés web aux sources mortes — citation fantôme possible), TGI <b>Gombe</b> (la pratique réelle des deux procès du dossier). <b>Le moyen d'incompétence territoriale reste une question d'instruction concrète</b> — à trancher par le greffe ou le JO papier. <span class="pill lu">DÉCRET 14/015 LU</span> <span class="pill verif">JO 1980-2014 papier À VÉRIFIER</span> <span class="src">(RECHERCHE_DECRET_RESSORTS_TGI_KIN.md)</span></p>
+  </div>
+
+  <div class="danger">
+    <div class="k">Ce qui reste À VÉRIFIER — état final après 4 recherches de clôture</div>
+    <p class="small">
+    1. Loi 24/025 du 25/07/2024 (nouveau CPC) — texte intégral introuvable en ligne : <b>blocage documentaire mesuré, priorité pour l'avocat</b><br>
+    2. Ordonnances 17/030 bis / 19/035 bis (ressorts TGI Kinshasa) — vues en résumés sans source primaire<br>
+    3. R.const. 1361 du 26/11/2024 (fraus omnia corrumpit) — 403, à obtenir via JO/recueil<br>
+    4. JO Zaïre papier 1980 n° 15 et JO RDC papier 2014 — archives papier à consulter<br>
+    5. Tous les manuscrits (p.009/017/019/020/021, doc1/doc3/doc4) — rescan 300 DPI requis<br>
+    6. Doctrine congolaise (Kalala Kongolo, Ntumba Nyembo) inaccessible — signaux concordants non vérifiés
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p class="muted">Dossier TABU ISSA / RC 130.338 — TGI Kinshasa/Gombe · Document préparé le 19 octobre 2026</p>
+  <p class="note">31 PAGES OCRISÉES · 6 TEXTES DE LOI LUS · 5 ARRÊTS LUS · 3 REVUES ADVERSES · 47 CORRECTIFS · CHAQUE AFFIRMATION SOURCEE</p>
+</footer>
+
+</body>
+</html>
